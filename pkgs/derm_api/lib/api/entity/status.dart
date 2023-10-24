@@ -7,10 +7,11 @@ import 'package:derm_api/api/entity/media/media_attachment.dart';
 import 'package:derm_api/api/entity/preview_card.dart';
 import 'package:derm_api/api/entity/status/mention.dart';
 import 'package:derm_api/api/entity/status/tag.dart';
-import 'package:derm_api/api/entity/visibility.dart';
+import 'package:derm_api/api/entity/enums/visibility.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'status.freezed.dart';
+part 'status.g.dart';
 
 @freezed
 class Status with _$Status{

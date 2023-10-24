@@ -4,6 +4,7 @@ import 'package:derm_api/api/entity/emoji.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'poll.freezed.dart';
+part 'poll.g.dart';
 
 @freezed
 class Poll with _$Poll{

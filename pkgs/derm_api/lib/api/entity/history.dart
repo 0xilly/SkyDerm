@@ -1,6 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'history.freezed.dart';
+part 'history.g.dart';
+
 @freezed
 class History with _$History{
   const factory History({

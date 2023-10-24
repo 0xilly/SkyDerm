@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'mention.freezed.dart';
+part 'mention.g.dart';
 
 @freezed
 class Mention with _$Mention{

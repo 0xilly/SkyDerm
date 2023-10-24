@@ -38,6 +38,7 @@ abstract class $MediaMetaCopyWith<$Res> {
   $Res call(
       {MediaFocalPoint? focus, MediaVariants original, MediaVariants small});
 
+  $MediaFocalPointCopyWith<$Res>? get focus;
   $MediaVariantsCopyWith<$Res> get original;
   $MediaVariantsCopyWith<$Res> get small;
 }
@@ -77,6 +78,18 @@ class _$MediaMetaCopyWithImpl<$Res, $Val extends MediaMeta>
 
   @override
   @pragma('vm:prefer-inline')
+  $MediaFocalPointCopyWith<$Res>? get focus {
+    if (_value.focus == null) {
+      return null;
+    }
+
+    return $MediaFocalPointCopyWith<$Res>(_value.focus!, (value) {
+      return _then(_value.copyWith(focus: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
   $MediaVariantsCopyWith<$Res> get original {
     return $MediaVariantsCopyWith<$Res>(_value.original, (value) {
       return _then(_value.copyWith(original: value) as $Val);
@@ -103,6 +116,8 @@ abstract class _$$MediaMetaImplCopyWith<$Res>
   $Res call(
       {MediaFocalPoint? focus, MediaVariants original, MediaVariants small});
 
+  @override
+  $MediaFocalPointCopyWith<$Res>? get focus;
   @override
   $MediaVariantsCopyWith<$Res> get original;
   @override
@@ -167,7 +182,7 @@ class _$MediaMetaImpl implements _MediaMeta {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MediaMetaImpl &&
-            const DeepCollectionEquality().equals(other.focus, focus) &&
+            (identical(other.focus, focus) || other.focus == focus) &&
             (identical(other.original, original) ||
                 other.original == original) &&
             (identical(other.small, small) || other.small == small));
@@ -175,8 +190,7 @@ class _$MediaMetaImpl implements _MediaMeta {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(focus), original, small);
+  int get hashCode => Object.hash(runtimeType, focus, original, small);
 
   @JsonKey(ignore: true)
   @override

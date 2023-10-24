@@ -1,7 +1,7 @@
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'media_variants.freezed.dart';
+part 'media_variants.g.dart';
 
 @freezed
 class MediaVariants with _$MediaVariants {

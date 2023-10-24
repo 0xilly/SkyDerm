@@ -4,6 +4,7 @@ import 'package:derm_api/api/entity/filter.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'filter_result.freezed.dart';
+part 'filter_result.g.dart';
 
 @freezed
 class FilterResult with _$FilterResult{

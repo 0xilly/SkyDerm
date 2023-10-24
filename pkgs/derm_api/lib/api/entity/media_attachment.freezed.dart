@@ -51,6 +51,8 @@ abstract class $MediaAttachmentCopyWith<$Res> {
       MediaMeta meta,
       String description,
       @JsonKey(name: "blurhash") String blur_hash});
+
+  $MediaMetaCopyWith<$Res> get meta;
 }
 
 /// @nodoc
@@ -71,7 +73,7 @@ class _$MediaAttachmentCopyWithImpl<$Res, $Val extends MediaAttachment>
     Object? url = freezed,
     Object? preview_url = null,
     Object? remote_url = freezed,
-    Object? meta = freezed,
+    Object? meta = null,
     Object? description = null,
     Object? blur_hash = null,
   }) {
@@ -96,7 +98,7 @@ class _$MediaAttachmentCopyWithImpl<$Res, $Val extends MediaAttachment>
           ? _value.remote_url
           : remote_url // ignore: cast_nullable_to_non_nullable
               as String?,
-      meta: freezed == meta
+      meta: null == meta
           ? _value.meta
           : meta // ignore: cast_nullable_to_non_nullable
               as MediaMeta,
@@ -109,6 +111,14 @@ class _$MediaAttachmentCopyWithImpl<$Res, $Val extends MediaAttachment>
           : blur_hash // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $MediaMetaCopyWith<$Res> get meta {
+    return $MediaMetaCopyWith<$Res>(_value.meta, (value) {
+      return _then(_value.copyWith(meta: value) as $Val);
+    });
   }
 }
 
@@ -129,6 +139,9 @@ abstract class _$$MediaAttachmentImplCopyWith<$Res>
       MediaMeta meta,
       String description,
       @JsonKey(name: "blurhash") String blur_hash});
+
+  @override
+  $MediaMetaCopyWith<$Res> get meta;
 }
 
 /// @nodoc
@@ -147,7 +160,7 @@ class __$$MediaAttachmentImplCopyWithImpl<$Res>
     Object? url = freezed,
     Object? preview_url = null,
     Object? remote_url = freezed,
-    Object? meta = freezed,
+    Object? meta = null,
     Object? description = null,
     Object? blur_hash = null,
   }) {
@@ -172,7 +185,7 @@ class __$$MediaAttachmentImplCopyWithImpl<$Res>
           ? _value.remote_url
           : remote_url // ignore: cast_nullable_to_non_nullable
               as String?,
-      meta: freezed == meta
+      meta: null == meta
           ? _value.meta
           : meta // ignore: cast_nullable_to_non_nullable
               as MediaMeta,
@@ -239,7 +252,7 @@ class _$MediaAttachmentImpl implements _MediaAttachment {
                 other.preview_url == preview_url) &&
             (identical(other.remote_url, remote_url) ||
                 other.remote_url == remote_url) &&
-            const DeepCollectionEquality().equals(other.meta, meta) &&
+            (identical(other.meta, meta) || other.meta == meta) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.blur_hash, blur_hash) ||
@@ -248,16 +261,8 @@ class _$MediaAttachmentImpl implements _MediaAttachment {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      type,
-      url,
-      preview_url,
-      remote_url,
-      const DeepCollectionEquality().hash(meta),
-      description,
-      blur_hash);
+  int get hashCode => Object.hash(runtimeType, id, type, url, preview_url,
+      remote_url, meta, description, blur_hash);
 
   @JsonKey(ignore: true)
   @override

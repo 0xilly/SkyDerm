@@ -1,4 +1,3 @@
-
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:derm_api/api/entity/emoji.dart';
@@ -6,11 +5,12 @@ import 'package:derm_api/api/entity/field.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'account.freezed.dart';
+part 'account.g.dart';
 
 @freezed
 class Account with _$Account {
   const factory Account({
-  required  id,
+  required String id,
   required String username,
   required String acct,
   required String display_name,

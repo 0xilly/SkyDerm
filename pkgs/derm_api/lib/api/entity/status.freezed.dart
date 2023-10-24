@@ -40,6 +40,13 @@ mixin _$Status {
   String get url => throw _privateConstructorUsedError;
   String? get in_reply_to_account_id => throw _privateConstructorUsedError;
   String? get reblog => throw _privateConstructorUsedError;
+  PreviewCard? get card => throw _privateConstructorUsedError;
+  String? get text => throw _privateConstructorUsedError;
+  DateTime? get edited_at => throw _privateConstructorUsedError;
+  bool get favorited => throw _privateConstructorUsedError;
+  bool get reblogged => throw _privateConstructorUsedError;
+  bool get muted => throw _privateConstructorUsedError;
+  bool get pinned => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -70,10 +77,18 @@ abstract class $StatusCopyWith<$Res> {
       int replies_count,
       String url,
       String? in_reply_to_account_id,
-      String? reblog});
+      String? reblog,
+      PreviewCard? card,
+      String? text,
+      DateTime? edited_at,
+      bool favorited,
+      bool reblogged,
+      bool muted,
+      bool pinned});
 
   $AccountCopyWith<$Res> get account;
   $ApplicationCopyWith<$Res>? get application;
+  $PreviewCardCopyWith<$Res>? get card;
 }
 
 /// @nodoc
@@ -108,6 +123,13 @@ class _$StatusCopyWithImpl<$Res, $Val extends Status>
     Object? url = null,
     Object? in_reply_to_account_id = freezed,
     Object? reblog = freezed,
+    Object? card = freezed,
+    Object? text = freezed,
+    Object? edited_at = freezed,
+    Object? favorited = null,
+    Object? reblogged = null,
+    Object? muted = null,
+    Object? pinned = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -186,6 +208,34 @@ class _$StatusCopyWithImpl<$Res, $Val extends Status>
           ? _value.reblog
           : reblog // ignore: cast_nullable_to_non_nullable
               as String?,
+      card: freezed == card
+          ? _value.card
+          : card // ignore: cast_nullable_to_non_nullable
+              as PreviewCard?,
+      text: freezed == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String?,
+      edited_at: freezed == edited_at
+          ? _value.edited_at
+          : edited_at // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      favorited: null == favorited
+          ? _value.favorited
+          : favorited // ignore: cast_nullable_to_non_nullable
+              as bool,
+      reblogged: null == reblogged
+          ? _value.reblogged
+          : reblogged // ignore: cast_nullable_to_non_nullable
+              as bool,
+      muted: null == muted
+          ? _value.muted
+          : muted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      pinned: null == pinned
+          ? _value.pinned
+          : pinned // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -206,6 +256,18 @@ class _$StatusCopyWithImpl<$Res, $Val extends Status>
 
     return $ApplicationCopyWith<$Res>(_value.application!, (value) {
       return _then(_value.copyWith(application: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PreviewCardCopyWith<$Res>? get card {
+    if (_value.card == null) {
+      return null;
+    }
+
+    return $PreviewCardCopyWith<$Res>(_value.card!, (value) {
+      return _then(_value.copyWith(card: value) as $Val);
     });
   }
 }
@@ -236,12 +298,21 @@ abstract class _$$StatusImplCopyWith<$Res> implements $StatusCopyWith<$Res> {
       int replies_count,
       String url,
       String? in_reply_to_account_id,
-      String? reblog});
+      String? reblog,
+      PreviewCard? card,
+      String? text,
+      DateTime? edited_at,
+      bool favorited,
+      bool reblogged,
+      bool muted,
+      bool pinned});
 
   @override
   $AccountCopyWith<$Res> get account;
   @override
   $ApplicationCopyWith<$Res>? get application;
+  @override
+  $PreviewCardCopyWith<$Res>? get card;
 }
 
 /// @nodoc
@@ -274,6 +345,13 @@ class __$$StatusImplCopyWithImpl<$Res>
     Object? url = null,
     Object? in_reply_to_account_id = freezed,
     Object? reblog = freezed,
+    Object? card = freezed,
+    Object? text = freezed,
+    Object? edited_at = freezed,
+    Object? favorited = null,
+    Object? reblogged = null,
+    Object? muted = null,
+    Object? pinned = null,
   }) {
     return _then(_$StatusImpl(
       id: null == id
@@ -352,6 +430,34 @@ class __$$StatusImplCopyWithImpl<$Res>
           ? _value.reblog
           : reblog // ignore: cast_nullable_to_non_nullable
               as String?,
+      card: freezed == card
+          ? _value.card
+          : card // ignore: cast_nullable_to_non_nullable
+              as PreviewCard?,
+      text: freezed == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String?,
+      edited_at: freezed == edited_at
+          ? _value.edited_at
+          : edited_at // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      favorited: null == favorited
+          ? _value.favorited
+          : favorited // ignore: cast_nullable_to_non_nullable
+              as bool,
+      reblogged: null == reblogged
+          ? _value.reblogged
+          : reblogged // ignore: cast_nullable_to_non_nullable
+              as bool,
+      muted: null == muted
+          ? _value.muted
+          : muted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      pinned: null == pinned
+          ? _value.pinned
+          : pinned // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -378,7 +484,14 @@ class _$StatusImpl implements _Status {
       required this.replies_count,
       required this.url,
       this.in_reply_to_account_id,
-      this.reblog})
+      this.reblog,
+      this.card,
+      this.text,
+      this.edited_at,
+      required this.favorited,
+      required this.reblogged,
+      required this.muted,
+      required this.pinned})
       : _media_attachments = media_attachments,
         _mentions = mentions,
         _tags = tags,
@@ -450,10 +563,24 @@ class _$StatusImpl implements _Status {
   final String? in_reply_to_account_id;
   @override
   final String? reblog;
+  @override
+  final PreviewCard? card;
+  @override
+  final String? text;
+  @override
+  final DateTime? edited_at;
+  @override
+  final bool favorited;
+  @override
+  final bool reblogged;
+  @override
+  final bool muted;
+  @override
+  final bool pinned;
 
   @override
   String toString() {
-    return 'Status(id: $id, uri: $uri, created_at: $created_at, account: $account, content: $content, visibility: $visibility, sensitive: $sensitive, spoiler_text: $spoiler_text, media_attachments: $media_attachments, application: $application, mentions: $mentions, tags: $tags, emojis: $emojis, reblogs_count: $reblogs_count, favorites_count: $favorites_count, replies_count: $replies_count, url: $url, in_reply_to_account_id: $in_reply_to_account_id, reblog: $reblog)';
+    return 'Status(id: $id, uri: $uri, created_at: $created_at, account: $account, content: $content, visibility: $visibility, sensitive: $sensitive, spoiler_text: $spoiler_text, media_attachments: $media_attachments, application: $application, mentions: $mentions, tags: $tags, emojis: $emojis, reblogs_count: $reblogs_count, favorites_count: $favorites_count, replies_count: $replies_count, url: $url, in_reply_to_account_id: $in_reply_to_account_id, reblog: $reblog, card: $card, text: $text, edited_at: $edited_at, favorited: $favorited, reblogged: $reblogged, muted: $muted, pinned: $pinned)';
   }
 
   @override
@@ -489,7 +616,17 @@ class _$StatusImpl implements _Status {
             (identical(other.url, url) || other.url == url) &&
             (identical(other.in_reply_to_account_id, in_reply_to_account_id) ||
                 other.in_reply_to_account_id == in_reply_to_account_id) &&
-            (identical(other.reblog, reblog) || other.reblog == reblog));
+            (identical(other.reblog, reblog) || other.reblog == reblog) &&
+            (identical(other.card, card) || other.card == card) &&
+            (identical(other.text, text) || other.text == text) &&
+            (identical(other.edited_at, edited_at) ||
+                other.edited_at == edited_at) &&
+            (identical(other.favorited, favorited) ||
+                other.favorited == favorited) &&
+            (identical(other.reblogged, reblogged) ||
+                other.reblogged == reblogged) &&
+            (identical(other.muted, muted) || other.muted == muted) &&
+            (identical(other.pinned, pinned) || other.pinned == pinned));
   }
 
   @JsonKey(ignore: true)
@@ -514,7 +651,14 @@ class _$StatusImpl implements _Status {
         replies_count,
         url,
         in_reply_to_account_id,
-        reblog
+        reblog,
+        card,
+        text,
+        edited_at,
+        favorited,
+        reblogged,
+        muted,
+        pinned
       ]);
 
   @JsonKey(ignore: true)
@@ -551,7 +695,14 @@ abstract class _Status implements Status {
       required final int replies_count,
       required final String url,
       final String? in_reply_to_account_id,
-      final String? reblog}) = _$StatusImpl;
+      final String? reblog,
+      final PreviewCard? card,
+      final String? text,
+      final DateTime? edited_at,
+      required final bool favorited,
+      required final bool reblogged,
+      required final bool muted,
+      required final bool pinned}) = _$StatusImpl;
 
   factory _Status.fromJson(Map<String, dynamic> json) = _$StatusImpl.fromJson;
 
@@ -593,6 +744,20 @@ abstract class _Status implements Status {
   String? get in_reply_to_account_id;
   @override
   String? get reblog;
+  @override
+  PreviewCard? get card;
+  @override
+  String? get text;
+  @override
+  DateTime? get edited_at;
+  @override
+  bool get favorited;
+  @override
+  bool get reblogged;
+  @override
+  bool get muted;
+  @override
+  bool get pinned;
   @override
   @JsonKey(ignore: true)
   _$$StatusImplCopyWith<_$StatusImpl> get copyWith =>

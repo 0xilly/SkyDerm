@@ -1,8 +1,11 @@
-import 'package:derm_api/api/entity/attachment_type.dart';
-import 'package:derm_api/api/entity/media/media_meta.dart';
+// ignore_for_file: non_constant_identifier_names
+
+import 'package:derm_api/api/entity/enums/attachment_type.dart';
+import 'package:derm_api/api/entity/media_meta.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'media_attachment.freezed.dart';
+part 'media_attachment.g.dart';
 
 @freezed
 class MediaAttachment with _$MediaAttachment {

@@ -3,6 +3,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'filter_status.freezed.dart';
+part 'filter_status.g.dart';
 
 @freezed
 class FilterStatus with _$FilterStatus{

@@ -3,6 +3,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'filter_keyword.freezed.dart';
+part 'filter_keyword.g.dart';
 
 @freezed
 class FilterKeyword with _$FilterKeyword{

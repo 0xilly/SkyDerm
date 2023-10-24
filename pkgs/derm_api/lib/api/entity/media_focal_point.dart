@@ -2,6 +2,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'media_focal_point.freezed.dart';
+part 'media_focal_point.g.dart';
 
 @freezed
 class MediaFocalPoint with _$MediaFocalPoint{

@@ -1,10 +1,9 @@
-
-import 'package:derm_api/api/entity/media/media_focal_point.dart';
+import 'package:derm_api/api/entity/media_focal_point.dart';
 import 'package:derm_api/api/entity/media_variants.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-
 part 'media_meta.freezed.dart';
+part 'media_meta.g.dart';
 
 @freezed
 class MediaMeta with _$MediaMeta{

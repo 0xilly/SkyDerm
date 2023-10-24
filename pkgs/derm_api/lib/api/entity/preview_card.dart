@@ -1,10 +1,11 @@
-
 // ignore_for_file: constant_identifier_names, non_constant_identifier_names
 
+import 'package:derm_api/api/entity/enums/card_type.dart';
 import 'package:derm_api/api/entity/history.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'preview_card.freezed.dart';
+part 'preview_card.g.dart';
 
 
 @freezed
@@ -24,19 +25,8 @@ class PreviewCard with _$PreviewCard {
     String? image,
     required String method_url,
     String? blurhash,
-    List<History> history,
+    List<History>? history,
   }) = _PreviewCard;
 
-  //factory PreviewCard .fromJson(Map<String, dynamic> json) => _$PreviewCardFromJson(json);
-}
-
-enum CardType {
-  Link("link"),
-  Photo("photo"),
-  Video("video"),
-  Rich("rich"),
-  ;
-
-  final String value;
-  const CardType(this.value);
+  factory PreviewCard .fromJson(Map<String, dynamic> json) => _$PreviewCardFromJson(json);
 }
