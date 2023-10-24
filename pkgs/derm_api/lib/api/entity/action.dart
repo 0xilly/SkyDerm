@@ -1,0 +1,6 @@
+enum Action {
+  hide,
+  warn,
+  ;
+
+}

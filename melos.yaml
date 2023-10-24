@@ -1,0 +1,5 @@
+name: SkyDerm
+
+
+packages:
+  - pkgs/*
