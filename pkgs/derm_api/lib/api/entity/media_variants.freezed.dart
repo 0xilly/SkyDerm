@@ -23,9 +23,8 @@ mixin _$MediaVariants {
   int get width => throw _privateConstructorUsedError;
   int get height => throw _privateConstructorUsedError;
   String? get size => throw _privateConstructorUsedError;
-  String? get aspect => throw _privateConstructorUsedError;
+  double? get aspect => throw _privateConstructorUsedError;
   String? get frameRate => throw _privateConstructorUsedError;
-  @JsonKey(name: 'duration')
   double? get duration => throw _privateConstructorUsedError;
   int? get bitrate => throw _privateConstructorUsedError;
 
@@ -45,9 +44,9 @@ abstract class $MediaVariantsCopyWith<$Res> {
       {int width,
       int height,
       String? size,
-      String? aspect,
+      double? aspect,
       String? frameRate,
-      @JsonKey(name: 'duration') double? duration,
+      double? duration,
       int? bitrate});
 }
 
@@ -88,7 +87,7 @@ class _$MediaVariantsCopyWithImpl<$Res, $Val extends MediaVariants>
       aspect: freezed == aspect
           ? _value.aspect
           : aspect // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       frameRate: freezed == frameRate
           ? _value.frameRate
           : frameRate // ignore: cast_nullable_to_non_nullable
@@ -117,9 +116,9 @@ abstract class _$$MediaVariantsImplCopyWith<$Res>
       {int width,
       int height,
       String? size,
-      String? aspect,
+      double? aspect,
       String? frameRate,
-      @JsonKey(name: 'duration') double? duration,
+      double? duration,
       int? bitrate});
 }
 
@@ -158,7 +157,7 @@ class __$$MediaVariantsImplCopyWithImpl<$Res>
       aspect: freezed == aspect
           ? _value.aspect
           : aspect // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       frameRate: freezed == frameRate
           ? _value.frameRate
           : frameRate // ignore: cast_nullable_to_non_nullable
@@ -184,7 +183,7 @@ class _$MediaVariantsImpl implements _MediaVariants {
       this.size,
       this.aspect,
       this.frameRate,
-      @JsonKey(name: 'duration') this.duration,
+      this.duration,
       this.bitrate});
 
   factory _$MediaVariantsImpl.fromJson(Map<String, dynamic> json) =>
@@ -197,11 +196,10 @@ class _$MediaVariantsImpl implements _MediaVariants {
   @override
   final String? size;
   @override
-  final String? aspect;
+  final double? aspect;
   @override
   final String? frameRate;
   @override
-  @JsonKey(name: 'duration')
   final double? duration;
   @override
   final int? bitrate;
@@ -251,9 +249,9 @@ abstract class _MediaVariants implements MediaVariants {
       {required final int width,
       required final int height,
       final String? size,
-      final String? aspect,
+      final double? aspect,
       final String? frameRate,
-      @JsonKey(name: 'duration') final double? duration,
+      final double? duration,
       final int? bitrate}) = _$MediaVariantsImpl;
 
   factory _MediaVariants.fromJson(Map<String, dynamic> json) =
@@ -266,11 +264,10 @@ abstract class _MediaVariants implements MediaVariants {
   @override
   String? get size;
   @override
-  String? get aspect;
+  double? get aspect;
   @override
   String? get frameRate;
   @override
-  @JsonKey(name: 'duration')
   double? get duration;
   @override
   int? get bitrate;

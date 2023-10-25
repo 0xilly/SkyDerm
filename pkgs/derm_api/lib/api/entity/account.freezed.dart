@@ -25,8 +25,8 @@ mixin _$Account {
   String get acct => throw _privateConstructorUsedError;
   String get display_name => throw _privateConstructorUsedError;
   bool get locked => throw _privateConstructorUsedError;
-  bool get bot => throw _privateConstructorUsedError;
-  bool get discoverable => throw _privateConstructorUsedError;
+  bool? get bot => throw _privateConstructorUsedError;
+  bool? get discoverable => throw _privateConstructorUsedError;
   bool get group => throw _privateConstructorUsedError;
   DateTime get created_at => throw _privateConstructorUsedError;
   String get note => throw _privateConstructorUsedError;
@@ -59,8 +59,8 @@ abstract class $AccountCopyWith<$Res> {
       String acct,
       String display_name,
       bool locked,
-      bool bot,
-      bool discoverable,
+      bool? bot,
+      bool? discoverable,
       bool group,
       DateTime created_at,
       String note,
@@ -96,8 +96,8 @@ class _$AccountCopyWithImpl<$Res, $Val extends Account>
     Object? acct = null,
     Object? display_name = null,
     Object? locked = null,
-    Object? bot = null,
-    Object? discoverable = null,
+    Object? bot = freezed,
+    Object? discoverable = freezed,
     Object? group = null,
     Object? created_at = null,
     Object? note = null,
@@ -135,14 +135,14 @@ class _$AccountCopyWithImpl<$Res, $Val extends Account>
           ? _value.locked
           : locked // ignore: cast_nullable_to_non_nullable
               as bool,
-      bot: null == bot
+      bot: freezed == bot
           ? _value.bot
           : bot // ignore: cast_nullable_to_non_nullable
-              as bool,
-      discoverable: null == discoverable
+              as bool?,
+      discoverable: freezed == discoverable
           ? _value.discoverable
           : discoverable // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       group: null == group
           ? _value.group
           : group // ignore: cast_nullable_to_non_nullable
@@ -220,8 +220,8 @@ abstract class _$$AccountImplCopyWith<$Res> implements $AccountCopyWith<$Res> {
       String acct,
       String display_name,
       bool locked,
-      bool bot,
-      bool discoverable,
+      bool? bot,
+      bool? discoverable,
       bool group,
       DateTime created_at,
       String note,
@@ -255,8 +255,8 @@ class __$$AccountImplCopyWithImpl<$Res>
     Object? acct = null,
     Object? display_name = null,
     Object? locked = null,
-    Object? bot = null,
-    Object? discoverable = null,
+    Object? bot = freezed,
+    Object? discoverable = freezed,
     Object? group = null,
     Object? created_at = null,
     Object? note = null,
@@ -294,14 +294,14 @@ class __$$AccountImplCopyWithImpl<$Res>
           ? _value.locked
           : locked // ignore: cast_nullable_to_non_nullable
               as bool,
-      bot: null == bot
+      bot: freezed == bot
           ? _value.bot
           : bot // ignore: cast_nullable_to_non_nullable
-              as bool,
-      discoverable: null == discoverable
+              as bool?,
+      discoverable: freezed == discoverable
           ? _value.discoverable
           : discoverable // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       group: null == group
           ? _value.group
           : group // ignore: cast_nullable_to_non_nullable
@@ -367,7 +367,8 @@ class __$$AccountImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(includeIfNull: false)
 class _$AccountImpl implements _Account {
   const _$AccountImpl(
       {required this.id,
@@ -375,8 +376,8 @@ class _$AccountImpl implements _Account {
       required this.acct,
       required this.display_name,
       required this.locked,
-      required this.bot,
-      required this.discoverable,
+      this.bot,
+      this.discoverable,
       required this.group,
       required this.created_at,
       required this.note,
@@ -386,9 +387,9 @@ class _$AccountImpl implements _Account {
       required this.avatar_static,
       required this.header,
       required this.header_static,
-      required this.followers_count,
-      required this.following_count,
-      required this.status_count,
+      this.followers_count = 0,
+      this.following_count = 0,
+      this.status_count = 0,
       required this.last_status_at,
       required final List<Field> fields,
       required final List<Emoji> emojis})
@@ -409,9 +410,9 @@ class _$AccountImpl implements _Account {
   @override
   final bool locked;
   @override
-  final bool bot;
+  final bool? bot;
   @override
-  final bool discoverable;
+  final bool? discoverable;
   @override
   final bool group;
   @override
@@ -431,10 +432,13 @@ class _$AccountImpl implements _Account {
   @override
   final String header_static;
   @override
+  @JsonKey()
   final int followers_count;
   @override
+  @JsonKey()
   final int following_count;
   @override
+  @JsonKey()
   final int status_count;
   @override
   final DateTime last_status_at;
@@ -547,8 +551,8 @@ abstract class _Account implements Account {
       required final String acct,
       required final String display_name,
       required final bool locked,
-      required final bool bot,
-      required final bool discoverable,
+      final bool? bot,
+      final bool? discoverable,
       required final bool group,
       required final DateTime created_at,
       required final String note,
@@ -558,9 +562,9 @@ abstract class _Account implements Account {
       required final String avatar_static,
       required final String header,
       required final String header_static,
-      required final int followers_count,
-      required final int following_count,
-      required final int status_count,
+      final int followers_count,
+      final int following_count,
+      final int status_count,
       required final DateTime last_status_at,
       required final List<Field> fields,
       required final List<Emoji> emojis}) = _$AccountImpl;
@@ -578,9 +582,9 @@ abstract class _Account implements Account {
   @override
   bool get locked;
   @override
-  bool get bot;
+  bool? get bot;
   @override
-  bool get discoverable;
+  bool? get discoverable;
   @override
   bool get group;
   @override

@@ -11,7 +11,7 @@ _$MediaVariantsImpl _$$MediaVariantsImplFromJson(Map<String, dynamic> json) =>
       width: json['width'] as int,
       height: json['height'] as int,
       size: json['size'] as String?,
-      aspect: json['aspect'] as String?,
+      aspect: (json['aspect'] as num?)?.toDouble(),
       frameRate: json['frameRate'] as String?,
       duration: (json['duration'] as num?)?.toDouble(),
       bitrate: json['bitrate'] as int?,

@@ -2,6 +2,7 @@
 
 import 'dart:convert';
 
+import 'package:derm_api/api/entity/status.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:derm_api/derm_api.dart' as derm_api;
@@ -12,13 +13,17 @@ var params = {
 
 Future<void> main(List<String> arguments) async {
   var url = Uri.https("mastodon.social", "/api/v1/timelines/public", params);
-
   var response = await http.get(url);
   print(url.toString());
   print("status code: ${response.statusCode}");
-  var json = jsonDecode(response.body);
-  var pretty = prettyJson(json);
-  print(pretty);
+
+  final List<dynamic> json_list = json.decode(response.body);
+  final List<Status> statuses = json_list.map((json) { return Status.fromJson(json);}).toList();
+  print(statuses);
+  //var json = jsonDecode(response.body) as List;
+  //List<Status> status = List.from(json);
+  //print(status);
+  //print(pretty);
 
 }
 

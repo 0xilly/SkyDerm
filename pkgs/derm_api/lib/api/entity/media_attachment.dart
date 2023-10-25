@@ -10,14 +10,14 @@ part 'media_attachment.g.dart';
 @freezed
 class MediaAttachment with _$MediaAttachment {
   const factory MediaAttachment({
-    required int id,
+    required String id,
     required AttachmentType type,
     String? url,
-    required String preview_url,
+    required String? preview_url,
     String? remote_url,
     required MediaMeta meta,
-    required String description,
-    @JsonKey(name:"blurhash") required String blur_hash,
+    String? description,
+    String? blurhash,
   }) = _MediaAttachment;
 
 

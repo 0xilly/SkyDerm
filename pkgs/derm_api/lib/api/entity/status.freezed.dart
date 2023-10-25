@@ -33,7 +33,7 @@ mixin _$Status {
   Application? get application => throw _privateConstructorUsedError;
   List<Mention> get mentions => throw _privateConstructorUsedError;
   List<Tag> get tags => throw _privateConstructorUsedError;
-  List<Emoji> get emoji => throw _privateConstructorUsedError;
+  List<Emoji> get emojis => throw _privateConstructorUsedError;
   int get reblogs_count => throw _privateConstructorUsedError;
   int get favourites_count => throw _privateConstructorUsedError;
   int get replies_count => throw _privateConstructorUsedError;
@@ -46,11 +46,11 @@ mixin _$Status {
   String? get language => throw _privateConstructorUsedError;
   String? get text => throw _privateConstructorUsedError;
   DateTime? get edited_at => throw _privateConstructorUsedError;
-  bool get favourited => throw _privateConstructorUsedError;
-  bool get reblogged => throw _privateConstructorUsedError;
-  bool get muted => throw _privateConstructorUsedError;
-  bool get bookmarked => throw _privateConstructorUsedError;
-  bool get pinned => throw _privateConstructorUsedError;
+  bool? get favourited => throw _privateConstructorUsedError;
+  bool? get reblogged => throw _privateConstructorUsedError;
+  bool? get muted => throw _privateConstructorUsedError;
+  bool? get bookmarked => throw _privateConstructorUsedError;
+  bool? get pinned => throw _privateConstructorUsedError;
   List<FilterResult>? get filtered => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -76,7 +76,7 @@ abstract class $StatusCopyWith<$Res> {
       Application? application,
       List<Mention> mentions,
       List<Tag> tags,
-      List<Emoji> emoji,
+      List<Emoji> emojis,
       int reblogs_count,
       int favourites_count,
       int replies_count,
@@ -89,11 +89,11 @@ abstract class $StatusCopyWith<$Res> {
       String? language,
       String? text,
       DateTime? edited_at,
-      bool favourited,
-      bool reblogged,
-      bool muted,
-      bool bookmarked,
-      bool pinned,
+      bool? favourited,
+      bool? reblogged,
+      bool? muted,
+      bool? bookmarked,
+      bool? pinned,
       List<FilterResult>? filtered});
 
   $AccountCopyWith<$Res>? get account;
@@ -127,7 +127,7 @@ class _$StatusCopyWithImpl<$Res, $Val extends Status>
     Object? application = freezed,
     Object? mentions = null,
     Object? tags = null,
-    Object? emoji = null,
+    Object? emojis = null,
     Object? reblogs_count = null,
     Object? favourites_count = null,
     Object? replies_count = null,
@@ -140,11 +140,11 @@ class _$StatusCopyWithImpl<$Res, $Val extends Status>
     Object? language = freezed,
     Object? text = freezed,
     Object? edited_at = freezed,
-    Object? favourited = null,
-    Object? reblogged = null,
-    Object? muted = null,
-    Object? bookmarked = null,
-    Object? pinned = null,
+    Object? favourited = freezed,
+    Object? reblogged = freezed,
+    Object? muted = freezed,
+    Object? bookmarked = freezed,
+    Object? pinned = freezed,
     Object? filtered = freezed,
   }) {
     return _then(_value.copyWith(
@@ -196,9 +196,9 @@ class _$StatusCopyWithImpl<$Res, $Val extends Status>
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
               as List<Tag>,
-      emoji: null == emoji
-          ? _value.emoji
-          : emoji // ignore: cast_nullable_to_non_nullable
+      emojis: null == emojis
+          ? _value.emojis
+          : emojis // ignore: cast_nullable_to_non_nullable
               as List<Emoji>,
       reblogs_count: null == reblogs_count
           ? _value.reblogs_count
@@ -248,26 +248,26 @@ class _$StatusCopyWithImpl<$Res, $Val extends Status>
           ? _value.edited_at
           : edited_at // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      favourited: null == favourited
+      favourited: freezed == favourited
           ? _value.favourited
           : favourited // ignore: cast_nullable_to_non_nullable
-              as bool,
-      reblogged: null == reblogged
+              as bool?,
+      reblogged: freezed == reblogged
           ? _value.reblogged
           : reblogged // ignore: cast_nullable_to_non_nullable
-              as bool,
-      muted: null == muted
+              as bool?,
+      muted: freezed == muted
           ? _value.muted
           : muted // ignore: cast_nullable_to_non_nullable
-              as bool,
-      bookmarked: null == bookmarked
+              as bool?,
+      bookmarked: freezed == bookmarked
           ? _value.bookmarked
           : bookmarked // ignore: cast_nullable_to_non_nullable
-              as bool,
-      pinned: null == pinned
+              as bool?,
+      pinned: freezed == pinned
           ? _value.pinned
           : pinned // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       filtered: freezed == filtered
           ? _value.filtered
           : filtered // ignore: cast_nullable_to_non_nullable
@@ -344,7 +344,7 @@ abstract class _$$StatusImplCopyWith<$Res> implements $StatusCopyWith<$Res> {
       Application? application,
       List<Mention> mentions,
       List<Tag> tags,
-      List<Emoji> emoji,
+      List<Emoji> emojis,
       int reblogs_count,
       int favourites_count,
       int replies_count,
@@ -357,11 +357,11 @@ abstract class _$$StatusImplCopyWith<$Res> implements $StatusCopyWith<$Res> {
       String? language,
       String? text,
       DateTime? edited_at,
-      bool favourited,
-      bool reblogged,
-      bool muted,
-      bool bookmarked,
-      bool pinned,
+      bool? favourited,
+      bool? reblogged,
+      bool? muted,
+      bool? bookmarked,
+      bool? pinned,
       List<FilterResult>? filtered});
 
   @override
@@ -397,7 +397,7 @@ class __$$StatusImplCopyWithImpl<$Res>
     Object? application = freezed,
     Object? mentions = null,
     Object? tags = null,
-    Object? emoji = null,
+    Object? emojis = null,
     Object? reblogs_count = null,
     Object? favourites_count = null,
     Object? replies_count = null,
@@ -410,11 +410,11 @@ class __$$StatusImplCopyWithImpl<$Res>
     Object? language = freezed,
     Object? text = freezed,
     Object? edited_at = freezed,
-    Object? favourited = null,
-    Object? reblogged = null,
-    Object? muted = null,
-    Object? bookmarked = null,
-    Object? pinned = null,
+    Object? favourited = freezed,
+    Object? reblogged = freezed,
+    Object? muted = freezed,
+    Object? bookmarked = freezed,
+    Object? pinned = freezed,
     Object? filtered = freezed,
   }) {
     return _then(_$StatusImpl(
@@ -466,9 +466,9 @@ class __$$StatusImplCopyWithImpl<$Res>
           ? _value._tags
           : tags // ignore: cast_nullable_to_non_nullable
               as List<Tag>,
-      emoji: null == emoji
-          ? _value._emoji
-          : emoji // ignore: cast_nullable_to_non_nullable
+      emojis: null == emojis
+          ? _value._emojis
+          : emojis // ignore: cast_nullable_to_non_nullable
               as List<Emoji>,
       reblogs_count: null == reblogs_count
           ? _value.reblogs_count
@@ -518,26 +518,26 @@ class __$$StatusImplCopyWithImpl<$Res>
           ? _value.edited_at
           : edited_at // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      favourited: null == favourited
+      favourited: freezed == favourited
           ? _value.favourited
           : favourited // ignore: cast_nullable_to_non_nullable
-              as bool,
-      reblogged: null == reblogged
+              as bool?,
+      reblogged: freezed == reblogged
           ? _value.reblogged
           : reblogged // ignore: cast_nullable_to_non_nullable
-              as bool,
-      muted: null == muted
+              as bool?,
+      muted: freezed == muted
           ? _value.muted
           : muted // ignore: cast_nullable_to_non_nullable
-              as bool,
-      bookmarked: null == bookmarked
+              as bool?,
+      bookmarked: freezed == bookmarked
           ? _value.bookmarked
           : bookmarked // ignore: cast_nullable_to_non_nullable
-              as bool,
-      pinned: null == pinned
+              as bool?,
+      pinned: freezed == pinned
           ? _value.pinned
           : pinned // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       filtered: freezed == filtered
           ? _value._filtered
           : filtered // ignore: cast_nullable_to_non_nullable
@@ -547,7 +547,8 @@ class __$$StatusImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(includeIfNull: false)
 class _$StatusImpl implements _Status {
   const _$StatusImpl(
       {required this.id,
@@ -562,7 +563,7 @@ class _$StatusImpl implements _Status {
       this.application,
       required final List<Mention> mentions,
       required final List<Tag> tags,
-      required final List<Emoji> emoji,
+      required final List<Emoji> emojis,
       required this.reblogs_count,
       required this.favourites_count,
       required this.replies_count,
@@ -575,16 +576,16 @@ class _$StatusImpl implements _Status {
       this.language,
       this.text,
       this.edited_at,
-      required this.favourited,
-      required this.reblogged,
-      required this.muted,
-      required this.bookmarked,
-      required this.pinned,
+      this.favourited,
+      this.reblogged,
+      this.muted,
+      this.bookmarked,
+      this.pinned,
       final List<FilterResult>? filtered})
       : _media_attachments = media_attachments,
         _mentions = mentions,
         _tags = tags,
-        _emoji = emoji,
+        _emojis = emojis,
         _filtered = filtered;
 
   factory _$StatusImpl.fromJson(Map<String, dynamic> json) =>
@@ -633,12 +634,12 @@ class _$StatusImpl implements _Status {
     return EqualUnmodifiableListView(_tags);
   }
 
-  final List<Emoji> _emoji;
+  final List<Emoji> _emojis;
   @override
-  List<Emoji> get emoji {
-    if (_emoji is EqualUnmodifiableListView) return _emoji;
+  List<Emoji> get emojis {
+    if (_emojis is EqualUnmodifiableListView) return _emojis;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_emoji);
+    return EqualUnmodifiableListView(_emojis);
   }
 
   @override
@@ -666,15 +667,15 @@ class _$StatusImpl implements _Status {
   @override
   final DateTime? edited_at;
   @override
-  final bool favourited;
+  final bool? favourited;
   @override
-  final bool reblogged;
+  final bool? reblogged;
   @override
-  final bool muted;
+  final bool? muted;
   @override
-  final bool bookmarked;
+  final bool? bookmarked;
   @override
-  final bool pinned;
+  final bool? pinned;
   final List<FilterResult>? _filtered;
   @override
   List<FilterResult>? get filtered {
@@ -687,7 +688,7 @@ class _$StatusImpl implements _Status {
 
   @override
   String toString() {
-    return 'Status(id: $id, uri: $uri, created_at: $created_at, account: $account, content: $content, visibility: $visibility, sensitive: $sensitive, spoiler_text: $spoiler_text, media_attachments: $media_attachments, application: $application, mentions: $mentions, tags: $tags, emoji: $emoji, reblogs_count: $reblogs_count, favourites_count: $favourites_count, replies_count: $replies_count, url: $url, in_reply_to_id: $in_reply_to_id, in_reply_to_account_id: $in_reply_to_account_id, reblog: $reblog, poll: $poll, card: $card, language: $language, text: $text, edited_at: $edited_at, favourited: $favourited, reblogged: $reblogged, muted: $muted, bookmarked: $bookmarked, pinned: $pinned, filtered: $filtered)';
+    return 'Status(id: $id, uri: $uri, created_at: $created_at, account: $account, content: $content, visibility: $visibility, sensitive: $sensitive, spoiler_text: $spoiler_text, media_attachments: $media_attachments, application: $application, mentions: $mentions, tags: $tags, emojis: $emojis, reblogs_count: $reblogs_count, favourites_count: $favourites_count, replies_count: $replies_count, url: $url, in_reply_to_id: $in_reply_to_id, in_reply_to_account_id: $in_reply_to_account_id, reblog: $reblog, poll: $poll, card: $card, language: $language, text: $text, edited_at: $edited_at, favourited: $favourited, reblogged: $reblogged, muted: $muted, bookmarked: $bookmarked, pinned: $pinned, filtered: $filtered)';
   }
 
   @override
@@ -713,7 +714,7 @@ class _$StatusImpl implements _Status {
                 other.application == application) &&
             const DeepCollectionEquality().equals(other._mentions, _mentions) &&
             const DeepCollectionEquality().equals(other._tags, _tags) &&
-            const DeepCollectionEquality().equals(other._emoji, _emoji) &&
+            const DeepCollectionEquality().equals(other._emojis, _emojis) &&
             (identical(other.reblogs_count, reblogs_count) ||
                 other.reblogs_count == reblogs_count) &&
             (identical(other.favourites_count, favourites_count) ||
@@ -760,7 +761,7 @@ class _$StatusImpl implements _Status {
         application,
         const DeepCollectionEquality().hash(_mentions),
         const DeepCollectionEquality().hash(_tags),
-        const DeepCollectionEquality().hash(_emoji),
+        const DeepCollectionEquality().hash(_emojis),
         reblogs_count,
         favourites_count,
         replies_count,
@@ -809,7 +810,7 @@ abstract class _Status implements Status {
       final Application? application,
       required final List<Mention> mentions,
       required final List<Tag> tags,
-      required final List<Emoji> emoji,
+      required final List<Emoji> emojis,
       required final int reblogs_count,
       required final int favourites_count,
       required final int replies_count,
@@ -822,11 +823,11 @@ abstract class _Status implements Status {
       final String? language,
       final String? text,
       final DateTime? edited_at,
-      required final bool favourited,
-      required final bool reblogged,
-      required final bool muted,
-      required final bool bookmarked,
-      required final bool pinned,
+      final bool? favourited,
+      final bool? reblogged,
+      final bool? muted,
+      final bool? bookmarked,
+      final bool? pinned,
       final List<FilterResult>? filtered}) = _$StatusImpl;
 
   factory _Status.fromJson(Map<String, dynamic> json) = _$StatusImpl.fromJson;
@@ -856,7 +857,7 @@ abstract class _Status implements Status {
   @override
   List<Tag> get tags;
   @override
-  List<Emoji> get emoji;
+  List<Emoji> get emojis;
   @override
   int get reblogs_count;
   @override
@@ -882,15 +883,15 @@ abstract class _Status implements Status {
   @override
   DateTime? get edited_at;
   @override
-  bool get favourited;
+  bool? get favourited;
   @override
-  bool get reblogged;
+  bool? get reblogged;
   @override
-  bool get muted;
+  bool? get muted;
   @override
-  bool get bookmarked;
+  bool? get bookmarked;
   @override
-  bool get pinned;
+  bool? get pinned;
   @override
   List<FilterResult>? get filtered;
   @override

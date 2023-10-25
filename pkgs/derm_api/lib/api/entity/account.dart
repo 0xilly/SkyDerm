@@ -9,14 +9,15 @@ part 'account.g.dart';
 
 @freezed
 class Account with _$Account {
+  @JsonSerializable(includeIfNull: false)
   const factory Account({
   required String id,
   required String username,
   required String acct,
   required String display_name,
   required bool locked,
-  required bool bot,
-  required bool discoverable,
+  bool? bot,
+  bool? discoverable,
   required bool group,
   required DateTime created_at,
   required String note,
@@ -26,9 +27,9 @@ class Account with _$Account {
   required String avatar_static,
   required String header,
   required String header_static,
-  required int followers_count,
-  required int following_count,
-  required int status_count,
+  @Default(0) int followers_count,
+  @Default(0) int following_count,
+  @Default(0) int status_count,
   required DateTime last_status_at,
   required List<Field> fields,
   required List<Emoji> emojis,

@@ -9,14 +9,14 @@ part of 'media_attachment.dart';
 _$MediaAttachmentImpl _$$MediaAttachmentImplFromJson(
         Map<String, dynamic> json) =>
     _$MediaAttachmentImpl(
-      id: json['id'] as int,
+      id: json['id'] as String,
       type: $enumDecode(_$AttachmentTypeEnumMap, json['type']),
       url: json['url'] as String?,
-      preview_url: json['preview_url'] as String,
+      preview_url: json['preview_url'] as String?,
       remote_url: json['remote_url'] as String?,
       meta: MediaMeta.fromJson(json['meta'] as Map<String, dynamic>),
-      description: json['description'] as String,
-      blur_hash: json['blurhash'] as String,
+      description: json['description'] as String?,
+      blurhash: json['blurhash'] as String?,
     );
 
 Map<String, dynamic> _$$MediaAttachmentImplToJson(
@@ -29,7 +29,7 @@ Map<String, dynamic> _$$MediaAttachmentImplToJson(
       'remote_url': instance.remote_url,
       'meta': instance.meta,
       'description': instance.description,
-      'blurhash': instance.blur_hash,
+      'blurhash': instance.blurhash,
     };
 
 const _$AttachmentTypeEnumMap = {

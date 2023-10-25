@@ -16,7 +16,8 @@ part 'status.freezed.dart';
 part 'status.g.dart';
 
 @freezed
-class Status with _$Status{
+class Status with _$Status {
+  @JsonSerializable(includeIfNull: false)
   const factory Status({
     required String id,
     required String uri,
@@ -30,7 +31,7 @@ class Status with _$Status{
     Application? application,
     required List<Mention> mentions,
     required List<Tag> tags,
-    required List<Emoji> emoji,
+    required List<Emoji> emojis,
     required int reblogs_count,
     required int favourites_count,
     required int replies_count,
@@ -43,11 +44,11 @@ class Status with _$Status{
     String? language,
     String? text,
     DateTime? edited_at,
-    required bool favourited,
-    required bool reblogged,
-    required bool muted,
-    required bool bookmarked,
-    required bool pinned,
+    bool? favourited,
+    bool? reblogged,
+    bool? muted,
+    bool? bookmarked,
+    bool? pinned,
     List<FilterResult>? filtered,
 
   }) = _Status;

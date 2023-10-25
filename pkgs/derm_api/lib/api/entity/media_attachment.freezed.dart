@@ -20,15 +20,14 @@ MediaAttachment _$MediaAttachmentFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MediaAttachment {
-  int get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   AttachmentType get type => throw _privateConstructorUsedError;
   String? get url => throw _privateConstructorUsedError;
-  String get preview_url => throw _privateConstructorUsedError;
+  String? get preview_url => throw _privateConstructorUsedError;
   String? get remote_url => throw _privateConstructorUsedError;
   MediaMeta get meta => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
-  @JsonKey(name: "blurhash")
-  String get blur_hash => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
+  String? get blurhash => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,14 +42,14 @@ abstract class $MediaAttachmentCopyWith<$Res> {
       _$MediaAttachmentCopyWithImpl<$Res, MediaAttachment>;
   @useResult
   $Res call(
-      {int id,
+      {String id,
       AttachmentType type,
       String? url,
-      String preview_url,
+      String? preview_url,
       String? remote_url,
       MediaMeta meta,
-      String description,
-      @JsonKey(name: "blurhash") String blur_hash});
+      String? description,
+      String? blurhash});
 
   $MediaMetaCopyWith<$Res> get meta;
 }
@@ -71,17 +70,17 @@ class _$MediaAttachmentCopyWithImpl<$Res, $Val extends MediaAttachment>
     Object? id = null,
     Object? type = null,
     Object? url = freezed,
-    Object? preview_url = null,
+    Object? preview_url = freezed,
     Object? remote_url = freezed,
     Object? meta = null,
-    Object? description = null,
-    Object? blur_hash = null,
+    Object? description = freezed,
+    Object? blurhash = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -90,10 +89,10 @@ class _$MediaAttachmentCopyWithImpl<$Res, $Val extends MediaAttachment>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String?,
-      preview_url: null == preview_url
+      preview_url: freezed == preview_url
           ? _value.preview_url
           : preview_url // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       remote_url: freezed == remote_url
           ? _value.remote_url
           : remote_url // ignore: cast_nullable_to_non_nullable
@@ -102,14 +101,14 @@ class _$MediaAttachmentCopyWithImpl<$Res, $Val extends MediaAttachment>
           ? _value.meta
           : meta // ignore: cast_nullable_to_non_nullable
               as MediaMeta,
-      description: null == description
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      blur_hash: null == blur_hash
-          ? _value.blur_hash
-          : blur_hash // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      blurhash: freezed == blurhash
+          ? _value.blurhash
+          : blurhash // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
@@ -131,14 +130,14 @@ abstract class _$$MediaAttachmentImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int id,
+      {String id,
       AttachmentType type,
       String? url,
-      String preview_url,
+      String? preview_url,
       String? remote_url,
       MediaMeta meta,
-      String description,
-      @JsonKey(name: "blurhash") String blur_hash});
+      String? description,
+      String? blurhash});
 
   @override
   $MediaMetaCopyWith<$Res> get meta;
@@ -158,17 +157,17 @@ class __$$MediaAttachmentImplCopyWithImpl<$Res>
     Object? id = null,
     Object? type = null,
     Object? url = freezed,
-    Object? preview_url = null,
+    Object? preview_url = freezed,
     Object? remote_url = freezed,
     Object? meta = null,
-    Object? description = null,
-    Object? blur_hash = null,
+    Object? description = freezed,
+    Object? blurhash = freezed,
   }) {
     return _then(_$MediaAttachmentImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -177,10 +176,10 @@ class __$$MediaAttachmentImplCopyWithImpl<$Res>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String?,
-      preview_url: null == preview_url
+      preview_url: freezed == preview_url
           ? _value.preview_url
           : preview_url // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       remote_url: freezed == remote_url
           ? _value.remote_url
           : remote_url // ignore: cast_nullable_to_non_nullable
@@ -189,14 +188,14 @@ class __$$MediaAttachmentImplCopyWithImpl<$Res>
           ? _value.meta
           : meta // ignore: cast_nullable_to_non_nullable
               as MediaMeta,
-      description: null == description
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      blur_hash: null == blur_hash
-          ? _value.blur_hash
-          : blur_hash // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      blurhash: freezed == blurhash
+          ? _value.blurhash
+          : blurhash // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -211,33 +210,32 @@ class _$MediaAttachmentImpl implements _MediaAttachment {
       required this.preview_url,
       this.remote_url,
       required this.meta,
-      required this.description,
-      @JsonKey(name: "blurhash") required this.blur_hash});
+      this.description,
+      this.blurhash});
 
   factory _$MediaAttachmentImpl.fromJson(Map<String, dynamic> json) =>
       _$$MediaAttachmentImplFromJson(json);
 
   @override
-  final int id;
+  final String id;
   @override
   final AttachmentType type;
   @override
   final String? url;
   @override
-  final String preview_url;
+  final String? preview_url;
   @override
   final String? remote_url;
   @override
   final MediaMeta meta;
   @override
-  final String description;
+  final String? description;
   @override
-  @JsonKey(name: "blurhash")
-  final String blur_hash;
+  final String? blurhash;
 
   @override
   String toString() {
-    return 'MediaAttachment(id: $id, type: $type, url: $url, preview_url: $preview_url, remote_url: $remote_url, meta: $meta, description: $description, blur_hash: $blur_hash)';
+    return 'MediaAttachment(id: $id, type: $type, url: $url, preview_url: $preview_url, remote_url: $remote_url, meta: $meta, description: $description, blurhash: $blurhash)';
   }
 
   @override
@@ -255,14 +253,14 @@ class _$MediaAttachmentImpl implements _MediaAttachment {
             (identical(other.meta, meta) || other.meta == meta) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.blur_hash, blur_hash) ||
-                other.blur_hash == blur_hash));
+            (identical(other.blurhash, blurhash) ||
+                other.blurhash == blurhash));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, type, url, preview_url,
-      remote_url, meta, description, blur_hash);
+      remote_url, meta, description, blurhash);
 
   @JsonKey(ignore: true)
   @override
@@ -281,36 +279,34 @@ class _$MediaAttachmentImpl implements _MediaAttachment {
 
 abstract class _MediaAttachment implements MediaAttachment {
   const factory _MediaAttachment(
-          {required final int id,
-          required final AttachmentType type,
-          final String? url,
-          required final String preview_url,
-          final String? remote_url,
-          required final MediaMeta meta,
-          required final String description,
-          @JsonKey(name: "blurhash") required final String blur_hash}) =
-      _$MediaAttachmentImpl;
+      {required final String id,
+      required final AttachmentType type,
+      final String? url,
+      required final String? preview_url,
+      final String? remote_url,
+      required final MediaMeta meta,
+      final String? description,
+      final String? blurhash}) = _$MediaAttachmentImpl;
 
   factory _MediaAttachment.fromJson(Map<String, dynamic> json) =
       _$MediaAttachmentImpl.fromJson;
 
   @override
-  int get id;
+  String get id;
   @override
   AttachmentType get type;
   @override
   String? get url;
   @override
-  String get preview_url;
+  String? get preview_url;
   @override
   String? get remote_url;
   @override
   MediaMeta get meta;
   @override
-  String get description;
+  String? get description;
   @override
-  @JsonKey(name: "blurhash")
-  String get blur_hash;
+  String? get blurhash;
   @override
   @JsonKey(ignore: true)
   _$$MediaAttachmentImplCopyWith<_$MediaAttachmentImpl> get copyWith =>
